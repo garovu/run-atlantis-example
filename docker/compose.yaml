@@ -1,0 +1,13 @@
+name: atlantis-gitea
+services:
+  atlantis:
+    image: ghcr.io/runatlantis/atlantis:latest
+    container_name: atlantis
+    ports:
+      - "4141:4141"
+    environment:
+      ATLANTIS_GITEA_USER: your-github-username
+      ATLANTIS_GITEA_TOKEN: your-github-token
+      ATLANTIS_REPO_ALLOWLIST: github.com/your-org/*
+    volumes:
+      - ./data:/atlantis-data
